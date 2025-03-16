@@ -15,7 +15,9 @@ app.use(bodyParser.json());
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  tls: true, // Ensure TLS is enabled
 });
+
 mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');
 });
