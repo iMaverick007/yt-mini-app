@@ -1,9 +1,12 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const EventLogSchema = new mongoose.Schema({
-  eventType: String, // e.g., "COMMENT_ADDED", "TITLE_UPDATED"
-  eventTime: { type: Date, default: Date.now },
-  details: Object, // Store additional event details like comment content or video title
-});
+const eventLogSchema = new mongoose.Schema(
+  {
+    eventType: { type: String, required: true }, // e.g., "COMMENT_ADDED", "ERROR"
+    details: { type: Object, required: true },  // JSON object for dynamic data
+    createdAt: { type: Date, default: Date.now }, // Timestamp
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('EventLog', EventLogSchema);
+module.exports = mongoose.model("EventLog", eventLogSchema);
