@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Backend Base URL
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://yt-mini-app-backend.onrender.com/api",
 });
 
 // Fetch video details
